@@ -1,0 +1,50 @@
+<%- include('partials/head', {title: 'Editar'}) %>
+<link rel="stylesheet" href="/stylesheets/form.css">
+ <!--header-->
+    <%-include('partials/header')  %> 
+    <!--header-->
+    <h1 style="margin-top:200px">Producto a editar: <%=productoNombre%></h1>
+    
+<div class="formulario">
+
+    <form action="/products/edit/<%=productoId%>?_method=PUT" method="post">
+
+    <div class="right">
+
+        <label for="nombre" ></label>
+        <input type="text" name="name" id="nombre" Value="Nombre" placeholder="Nombre del producto" value="<%= productoNombre %>">
+
+        <label for="marca" > </label>
+        <input type="text" name="marca" id="marca" placeholder="Marca" Value="<%= productoMarca %> ">
+
+        <label for="Deporte"></label>
+        <input type="text" name="category" id="categoria" placeholder="Deporte" Value="<%=productoDeporte%> ">
+
+    </div>
+
+    <div class="left">
+        
+        <label for="precio"></label>
+        <input type="text" name="price" id="precio" placeholder="Precio" Value="<%= productoPrecio %> ">
+
+        <label for="descuento"></label>
+        <input type="text" name="discount" id="descuento" placeholder="Descuento" Value="<%= productoDescuento %> ">
+        
+        <label for="descripcion"></label>
+        <input type="text" name="description" id="descripcion" placeholder="Descripción" Value="<%= productoDescripcion %> ">
+        
+    </div>
+        
+    <div class="botones">
+
+        <button type="submit" class="guardar">Modificar</button>
+
+        <button type="reset">Resetear</button>
+
+    </div>
+
+    </form>
+
+</div>
+
+    <%- include('partials/footer') %>
