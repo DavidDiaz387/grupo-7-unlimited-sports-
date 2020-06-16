@@ -1,35 +1,23 @@
+
 $('.owl-carousel').owlCarousel({
     loop:true,
-    margin:10,
-    nav:true,
+    margin:20,
+    responsiveClass:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
     responsive:{
         0:{
-            items:1
+            items:2,
+            nav:true
         },
         600:{
-            items:3
+            items:3,
+            nav:true
         },
         1000:{
-            items:7
-        }
-    }
-  })
-  
-//video
-$('.owl-carousell').owlCarousell({
-    items:1,
-    merge:true,
-    loop:true,
-    margin:10,
-    video:true,
-    lazyLoad:true,
-    center:true,
-    responsive:{
-        480:{
-            items:2
-        },
-        600:{
-            items:4
+            items:5,
+            nav:true,
+            loop:true
         }
     }
 })
