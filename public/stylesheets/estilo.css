@@ -274,7 +274,7 @@ div.owl-theme .owl-dots .owl-dot span{display: none;}
     right: 0;
 }
 .tarjetas p{color: white;background: black;text-align: center;}
-@media (min-width: 768px){
+@media (min-device-width: 768px){
   /*-header-*/
   .usuario{display: none;}
 img.logo{
@@ -291,7 +291,7 @@ img.logo{
   .lupa{display: none;}
 
   .navbar-toggler-icon {
-    font-size: 18px;
+    font-size: 14px;
     margin-right: 1px;
   }
   .input {
