@@ -6,7 +6,7 @@
 
 <h2>Nueva cuenta </h2>
 
-<form action="" method="POST" enctype="multipart/form-data" class="container">
+<form action="/users/register" method="POST" enctype="multipart/form-data" class="container">
 
 
 
@@ -39,6 +39,12 @@
 
 <label for="foto">Imagen</label>
 <input type="file" name="image" class="form-control" id="image">
+
+<% if (typeof error != 'undefined') { %>
+    <% error.forEach(error => { %>
+        <p><%= error.msg %> </p>
+    <% }) %>
+<% } %>
 
  <button type="submit">CREAR CUENTA</button>
 

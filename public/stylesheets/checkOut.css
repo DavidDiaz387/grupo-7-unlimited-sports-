@@ -3,69 +3,14 @@
     margin:0;
     box-sizing:border-box;
 }
-/*Esta parte esta reservada para el header*/
-.buscador{display: none;}  
-    .header {
-    width: 100%;
-    top: 0;
-    position: fixed;
-    z-index: 999;}
-
-     img.logo{width: 70px;
-        height: 34px;
-        position: absolute;
-        top: 0px;
-        left: 4px;
-        }
-    
-        .submenu{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        font-size: 12px;
-        position: relative;
-        background-color: #0099cc;
-        
-        
-        }
-        
-        .envio{
-            width: 45%;
-        margin-right: 42px;
-        height:15px;
-        font-style: italic;
-        font-size: 17px;
-        }
-        
-        
-        .submenu span{
-        margin-right: 68px;
-        height: 15px;
-        font-style: italic;
-        }
-        .bi{text-align: end;}
-        
-        .navbar{background: white;}
-
-        .navbar-nav{
-        
-        background-color: black;
-        
-        }
-        .nav-item:hover{background:#0099cc ;}
-        
-        .navbar-light .navbar-toggler { font-size: 14px;}
-        .nav-item_home{ border-bottom: solid 1px white;}
-        .navbar-nav{
-            width: 105%;
-        }
-
 
 /*Aca comeinza el section y sus posiciones*/
 
-section{
+.articleProduct{
     padding-left: 2%;
     padding-right: 2%;
+    padding-top: 13%;
+    padding-bottom: 5%;
 }
 
 .products{
@@ -116,6 +61,7 @@ section{
 .description{
     width: 60%;
     padding-left: 3%;
+    padding-right: 3%;
 }
 
 .description h2{

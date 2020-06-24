@@ -4,7 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+var session = require('express-session')
 
+/**requiriendo middleware de cookie Nivel App */
+var cookieUser = require('./middlewares/cookieUser')
 
 
 var indexRouter = require('./routes/index');
@@ -23,6 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../fontawesome-free-5.13.0-web')));
+app.use(session({secret:"unlimited"}))
+
+/**Middleware nivel App */
+app.use(cookieUser);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

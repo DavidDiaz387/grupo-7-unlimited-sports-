@@ -16,11 +16,18 @@
   </div>
   <!--El form de ingreso del usuario-->
   <div class="form">
-      <form action="" method="post">
+      <form action="/users/auth" method="post">
           <label for="">Usuario</label>
-          <input type="text" name="" id="" placeholder="Ej: ulimited@sports.com">
+          <input type="text" name="email" id="" placeholder="Ej: ulimited@sports.com">
           <label for="">Contraseña</label>
-          <input type="text" name="" id="" placeholder="Contraseña">
+          <input type="text" name="password" id="" placeholder="Contraseña">
+          <label for="">Recordar</label>
+          <input type="checkBox" name="remember">
+          <% if (typeof error != 'undefined') { %>
+                <% error.forEach(error => { %>
+                    <p><%= error.msg %> </p>
+                <% }) %>
+            <% } %>
           <button type="submit">Entrar</button>
       </form>
   </div>
@@ -30,7 +37,7 @@
       <form action="" method="get" class="pass-regis">
           <button type="submit">Olvide mi contraseña</button>
       </form>
-      <form action="" method="get" class="pass-regis">
+      <form action="/users/register" method="get" class="pass-regis">
           <button type="submit">Registrarme</button>
       </form>
       <!--Aca termina lo de mobile y table-->
@@ -39,7 +46,7 @@
           <a href="">Olvide mi Contraseña</a>
       </div>
       <div class="register mail">
-          <a href="">Registrarme</a>
+          <a href="/users/register">Registrarme</a>
       </div>
       <!--Aca termina lo de la pantalla de escritorio-->
   </div>
