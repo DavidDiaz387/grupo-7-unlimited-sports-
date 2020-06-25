@@ -3,7 +3,8 @@ var router = express.Router();
 var controller = require('../controllers/sportController')
 var methodOverride = require('method-override')// para put y delete
 var multer= require('multer');// para subir archivo fotos o videos 
-var path=require('path')
+var path=require('path');
+var redirigirUsuario = require('../middlewares/redirigirUsuario');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -38,7 +39,7 @@ router.put('/products/edit/:id',controller.edited)
 router.delete('/products/delete/:id', controller.delete)
 
 /* CHECKOUT */
-router.get('/check',controller.checkOut);
+router.get('/check', redirigirUsuario, controller.checkOut);
 router.post('/checkData/:id',controller.checkOutData);
 
 

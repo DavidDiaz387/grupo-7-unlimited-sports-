@@ -9,7 +9,6 @@ var session = require('express-session')
 /**requiriendo middleware de cookie Nivel App */
 var cookieUser = require('./middlewares/cookieUser')
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
