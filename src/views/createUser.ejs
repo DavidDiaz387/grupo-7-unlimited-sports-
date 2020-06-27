@@ -17,10 +17,19 @@
 <label for="">Nombre</label> 
 <input type="text" name="nombre"id='nombre'>
 
-<small class="error">Error</small>
+<small class="error">
+    
+    
+</small>
 
 <label for="">Apellido</label>
 <input type="text" name="apellido" id="apellido">
+
+<% if(typeof errors != 'undefined'){ %> 
+    <% errors.forEach(error => { %>
+        <p><%= error.msg  %> </p>
+    <% }); %> 
+    <% } %>
 
 </div>
 
@@ -36,15 +45,14 @@
 
 <label for="">Confirmar Contraseña </label>
 <input type="password" name="rcontraseña" id="rcontraseña">
+<% if(typeof error != 'undefined'){ %>
+    <p><%= error %> </p>     
+<% } %>
 
 <label for="foto">Imagen</label>
 <input type="file" name="image" class="form-control" id="image">
 
-<% if (typeof error != 'undefined') { %>
-    <% error.forEach(error => { %>
-        <p><%= error.msg %> </p>
-    <% }) %>
-<% } %>
+
 
  <button type="submit">CREAR CUENTA</button>
 

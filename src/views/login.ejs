@@ -16,18 +16,20 @@
   </div>
   <!--El form de ingreso del usuario-->
   <div class="form">
-      <form action="/users/auth" method="post">
+      <form action="/users/login" method="post">
           <label for="">Usuario</label>
-          <input type="text" name="email" id="" placeholder="Ej: ulimited@sports.com">
+          <input type="email" name="email" id="" placeholder="Ej: ulimited@sports.com">
           <label for="">Contraseña</label>
-          <input type="text" name="password" id="" placeholder="Contraseña">
+          <input type="password" name="password" id="" placeholder="Contraseña">
           <label for="">Recordar</label>
           <input type="checkBox" name="remember">
-          <% if (typeof error != 'undefined') { %>
-                <% error.forEach(error => { %>
-                    <p><%= error.msg %> </p>
-                <% }) %>
-            <% } %>
+          <% if(typeof errors != 'undefined'){ %>
+            <% errors.forEach(error =>{  %>
+            <p><%= error.msg %> </p>
+            <% })} %>
+            <% if(typeof error != 'undefined'){ %>
+                  <p><%= error %> </p>
+              <% } %>
           <button type="submit">Entrar</button>
       </form>
   </div>
