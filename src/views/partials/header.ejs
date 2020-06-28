@@ -1,54 +1,78 @@
-<body>
-  <!--header-->
-  
-  <header class="header">
-               <div class="fantasma">   
-                
-              
-              <i class="flete fas fa-truck"></i>
-                <b class="envio">  </i>Envio gratis </b> 
-                <b clase="compra"> ¡para compra mayores de $2500!</b> 
-              </div>
-                
-          <div class="menu">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+<!--header-->
+
+<header>
+  <div class="fantasma">
+    <!-- Logo -->
+    <div class='div'> <a href="/"><img class="logo" src="/images/LOGO - SPORT.png" alt="logo"></a> </div>
+
+    <!-- Buscador -->
+    <div class='div'>
+      <input class="buscador" type="text" size="38">
+      <i class="lupa fas fa-search "></i>
+    </div>
+
+    <!-- Articulo Envio  --> 
+    <div class='div'>
+      <i class="flete fas fa-truck"></i>
+      <p class="envio"> </i>Envio gratis </p>
+      <p clase="compra"> ¡para compra mayores de $2500!</p>
+    </div>
+  </div>
+
+  <!--Menu  --> 
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-black flex-row-reverse " ">
+    <div class="icono" >
+      <!-- usuario -->
+    <a href=""> <i class=" usuario far fa-user"></i></a>
+
    
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon "></span>
-                </button>
-                <!--<a class="navbar-brand" href="#">Navbar</a>-->
-                <i class="lupa fas fa-search"></i>
-                  
-                 
-                  
-                <!-- submenu -->
-                <div class="collapse navbar-collapse " id="navbarNav">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href='/products'>PRODUCTOS<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">DEPORTES <span class="sr-only">(current)</span></a>
-                    </li><li class="nav-item active">
-                      <a class="nav-link" href="#">MARCAS  <span class="sr-only">(current)</span></a>
-                    </li><li class="nav-item active">
-                      <a class="nav-link" href="#">OFERTAS <span class="sr-only">(current)</span></a>
-                    </li>
-                    
-           
-                  </ul>
-                 
-                  <a class="nav-link" href="/users/register"> <i class="user far fa-user">USUARIO</i></a>
-                </div>
-              </nav>
-              
-  
-          </div>
-          <a href="/users/login"><i class="usuario far fa-user"></i></a>
-          <div class="buscador"><input class="input"   type="serch" size="40">
-            <i class="serch fas fa-search"></i>
-          </div>
-          <a href="/check"> <i class="carrito fas fa-cart-arrow-down"></i></a>
-          <a href="/"><img  class="logo"  src="/images/LOGO - SPORT.png" alt="logo"></a>
-    </header>
-        <!--/header-->
+      <!-- lupa -->
+      
+        <i data-toggle="dropdown" class="lupa2 fas fa-search "></i>
+     <!-- carrito -->
+    <a href=""> <i class="carrito fas fa-cart-arrow-down   "></i></a>
+      <div class="dropdown-menu">
+
+      <!-- buscador -->
+        <a class=" dropdown-item" href="#"><div class="busqueda"><input class="buscador" type="text" size="40"><button class='buscar'>BUSCAR</button></div></a>
+      
+    </div>
+  </div>
+
+
+    <a class="navbar-brand" href="#"> <img class="logo2" src="/images/LOGO - SPORT.png" alt="logo"></a>
+  <!-- Boton Hamburguesa -->
+    
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Listado de menu -->
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link " href="/products">PRODUCTOS </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">MARCAS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">DEPORTES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">OFERTAS</a>
+        </li>
+        <li class="nav-item"></li>
+        <a class=" user nav-link" href="#">  <i class="  far fa-user"></i>USUARIO</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+</header>
+<!--/header-->
