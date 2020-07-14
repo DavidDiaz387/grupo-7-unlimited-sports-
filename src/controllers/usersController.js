@@ -2,35 +2,41 @@ const fs = require('fs')
 const path = require('path')
 const bcrypt=require('bcrypt');
 const { json } = require('express');//hacer un console .log
-let {validationResult} = require('express-validator');
+
 const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 /**Aca esta la conversion de la B.D a un objeto de JS */
 let usersJson = path.join(__dirname,'../data/usersDataBase.json');
 let arrayUsers =JSON.parse(fs.readFileSync(usersJson,'utf-8')|| "[]");
 
+let DB = require('../database/models')
 
  let controller ={
-    register:(req,res)=> res.render('createUser'),
-         
-    store:(req, res) =>{
+    register:(req,res)=>{ 
+        res.render('createUser')
+    },     
+    store: async (req, res) =>{
         let error
         let password;
         if (req.body.contraseña == req.body.rcontraseña) {
             password = bcrypt.hashSync(req.body.contraseña, 10);
         
-        let newUser = {
-            id: arrayUsers == "" ? 1 : arrayUsers.length + 1,
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            password: password,
-            image: req.files[0].filename,
-        };
-        arrayUsers = [...arrayUsers, newUser];
-        fs.writeFileSync(usersJson, JSON.stringify(arrayUsers, null, ""));
-         let user =  arrayUsers.find(user=>{return user.email == req.body.email})
+            await DB.clientes.create({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                password: password,
+                image: req.files[0].filename,
+            })
+
+
+        
+            let user = await DB.clientes.findOne({
+                where:{
+                    email:req.body.email
+                }
+            })
          
-        req.session.userId = user.id
+            req.session.userId = user.id
 
         res.redirect("/users/profile");
         } else {
@@ -42,12 +48,14 @@ let arrayUsers =JSON.parse(fs.readFileSync(usersJson,'utf-8')|| "[]");
         res.render('login')
     },  
      
-   auth:(req,res)=> {
+   auth: async (req,res)=> {
     let error;
         
     let remenber = req.body.remenber
-    let user = arrayUsers.find(user =>{
-        return req.body.email == user.email
+    let user = await DB.clientes.findOne({
+        where:{
+            email:req.body.email
+        }
     })
     if(user && bcrypt.compareSync(req.body.password,user.password)){
         if(remenber){

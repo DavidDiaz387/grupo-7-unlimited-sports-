@@ -11,24 +11,24 @@
       <!--Aca comienza la parte de la img del producto y su descripcion-->
         <div class="imagen">
             <div class="img">
-                <img src="/images/products/<%= imagenProducto %> " alt="la imagen del Producto">
+                <img src="/images/products/<%= product.image %> " alt="la imagen del Producto">
             </div>
             <div class="photos">
                 <h1>las mini imagenes del producto </h1>
             </div>
             <article class="description">
                 <h2>Descripcion:</h2>
-                <p><%= descripcionProducto %> </p>
+                <p><%= product.descripcion %> </p>
             </article>
         </div>
       <!--Termina aca -->
       <!--Comienza todo lo que incluye el precio y descuento y los formularios-->
         <div class="precio">
-            <h2><%= nombreProducto %> </h2>
+            <h2><%= product.nombre %> </h2>
            
-            <h3>$<%= precioProducto %> </h3>
-            <% if(descuentoProducto!=0){ %>
-                <h4><%= descuentoProducto %> % OFF</h4>
+            <h3>$<%= product.precio %> </h3>
+            <% if(product.descuento !=0){ %>
+                <h4><%= product.descuento %> % OFF</h4>
                <h5 class="h5">Precio con Descuento: <span>$ <%= precioConDescuento %> </h5>
                 <% }%> 
                 
@@ -87,14 +87,14 @@
                 <button type="submit">Comprar ahora</button>
       <!--termina el formulario con los estilos para escritorio-->
             </form>
-            <form action="/checkData/<%= idProducto %> " method="post" class="boton">
+            <form action="/checkData/<%= product.id %> " method="post" class="boton">
                 <button type="submit">Agregar al carrito</button>
             </form>
-            <form action="/products/edit/<%= idProducto %> " method="get" class="boton">
+            <form action="/products/edit/<%= product.id %> " method="get" class="boton">
                 <button type="submit">EDITAR</button>
             </form>
             
-            <form action="/products/delete/<%= idProducto %> ?_method=DELETE" method="POST" class="boton">
+            <form action="/products/delete/<%= product.id %> ?_method=DELETE" method="POST" class="boton">
                 <button type="submit" class="action-button delete" >ELIMINAR</button>
             </form>
         </div>

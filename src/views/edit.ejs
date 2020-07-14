@@ -3,35 +3,43 @@
  <!--header-->
     <%-include('partials/header')  %> 
     <!--header-->
-    <h1 style="margin-top:200px">Producto a editar: <%=productoNombre%></h1>
+    <h1 style="margin-top:200px">Producto a editar: <%= product.nombre %></h1>
     
 <div class="formulario">
 
-    <form action="/products/edit/<%=productoId%>?_method=PUT" method="post">
+    <form action="/products/edit/<%= product.id %>?_method=PUT" method="post">
 
     <div class="right">
 
         <label for="nombre" ></label>
-        <input type="text" name="name" id="nombre" Value="Nombre" placeholder="Nombre del producto" value="<%= productoNombre %>">
+        <input type="text" name="name" id="nombre" Value="Nombre" placeholder="Nombre del producto" value="<%= product.nombre %>">
 
         <label for="marca" > </label>
-        <input type="text" name="marca" id="marca" placeholder="Marca" Value="<%= productoMarca %> ">
+        <select name="marca" id="" >
+            <% marcas.forEach(marca => { %>
+                <% if (product.categoria.id == marca.id) { %>
+                 <option selected value="<%= marca.id %> "><%= marca.marca %> </option>
+                <% }else{ %>
+                    <option value="<%= marca.id %> "><%= marca.marca %> </option>
+                <% } %>     
+            <% }) %>
+        </select>
 
         <label for="Deporte"></label>
-        <input type="text" name="category" id="categoria" placeholder="Deporte" Value="<%=productoDeporte%> ">
+        <input type="text" name="sport" id="Deporte" placeholder="Deporte" Value="<%= product.deporte %> ">
 
     </div>
 
     <div class="left">
         
         <label for="precio"></label>
-        <input type="text" name="price" id="precio" placeholder="Precio" Value="<%= productoPrecio %> ">
+        <input type="text" name="price" id="precio" placeholder="Precio" Value="<%= product.precio %> ">
 
         <label for="descuento"></label>
-        <input type="text" name="discount" id="descuento" placeholder="Descuento" Value="<%= productoDescuento %> ">
+        <input type="text" name="discount" id="descuento" placeholder="Descuento" Value="<%= product.descuento %> ">
         
         <label for="descripcion"></label>
-        <input type="text" name="description" id="descripcion" placeholder="Descripción" Value="<%= productoDescripcion %> ">
+        <input type="text" name="description" id="descripcion" placeholder="Descripción" Value="<%= product.descripcion %> ">
         
     </div>
         

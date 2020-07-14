@@ -41,7 +41,11 @@
                 <div class="left">
 
                 <label for="marca">Marca</label>
-                <input type="text" name="marca" id="" placeholder="Marca">
+                <select name="marca" id="">
+                    <% categorias.forEach(categoria =>{ %>
+                    <option value="<%= categoria.id %>"><%= categoria.marca %> </option>
+                    <% }) %>
+                    </select>
 
                 <label for="descripcion">Descripción:</label>
                 <textarea name="description" id="" cols="30" rows="5" placeholder="Descripción"></textarea>
