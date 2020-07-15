@@ -1,8 +1,9 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "base_ulimited_db",
+    "password": "root",
+    "database": "base_unlimited_db",
+    "port": 8889,
     "host": "127.0.0.1",
     "dialect": "mysql",
     "define":{
