@@ -75,10 +75,6 @@ section{
 }
 
 @media(min-width:1024px){
-    body{
-        padding-top: 14%;
-    }
-    
     /*Los estilos de la imagen, descripcion y precio y todo lo demas*/
     
     .tallephone{

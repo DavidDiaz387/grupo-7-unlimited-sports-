@@ -3,7 +3,7 @@
  <!--header-->
     <%-include('partials/header')  %> 
     <!--header-->
-    <h1 style="margin-top:200px">Producto a editar: <%= product.nombre %></h1>
+    <h1>Producto a editar: <%= product.nombre %></h1>
     
 <div class="formulario">
 
@@ -12,7 +12,7 @@
     <div class="right">
 
         <label for="nombre" ></label>
-        <input type="text" name="name" id="nombre" Value="Nombre" placeholder="Nombre del producto" value="<%= product.nombre %>">
+        <input type="text" name="name" id="nombre" placeholder="Nombre del producto" value="<%= product.nombre %>">
 
         <label for="marca" > </label>
         <select name="marca" id="" >

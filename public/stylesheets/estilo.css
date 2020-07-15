@@ -71,9 +71,6 @@
 
 /*--contenido--*/
 
-.contenido {
-  margin-top: -40px;
-}
 
 /*--carousel principal--*/
 .w-100 {
@@ -416,6 +413,10 @@ section p {
 
   .w-100 {
     margin-top: 0;
+  }
+
+  .carousel-inner{
+    margin-top: -39px;
   }
 
 

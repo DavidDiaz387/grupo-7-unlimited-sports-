@@ -45,7 +45,7 @@ const controller={
             res.render('detailProduct',{
                 toThousand,
                 product,
-                precioConDescuento:toThousand(productoEncontrado.price - (productoEncontrado.price * productoEncontrado.discount / 100))
+                precioConDescuento:toThousand(product.price - (product.price * product.discount / 100))
             })
             }else{
                 res.send('producto no esta añadido')
@@ -76,7 +76,7 @@ const controller={
                 id:id
             }
         })  
-            
+    res.redirect('/products');      
     },
     delete: async (req,res)=>{
         let id = req.params.id;

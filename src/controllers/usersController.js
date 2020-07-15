@@ -69,8 +69,9 @@ let DB = require('../database/models')
     }
     },
 
-    profile:(req,res) =>{
-        res.render('profile')
+    profile: async (req,res) =>{
+        let user = await DB.clientes.findByPk(req.session.userId);
+        res.render('profile', {user});
     }
     
 }  
