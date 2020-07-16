@@ -24,6 +24,8 @@ header h1{
 .formulario form label, .formulario form input,textarea, .formulario form button{
     font-size: 140%;
     width: 100%;
+    display: block;
+    margin-top: 10px;
 }
 
 .formulario form input, textarea,button{
