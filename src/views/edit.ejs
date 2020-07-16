@@ -11,10 +11,10 @@
 
     <div class="right">
 
-        <label for="nombre" ></label>
+        <label for="nombre" >Nombre</label>
         <input type="text" name="name" id="nombre" placeholder="Nombre del producto" value="<%= product.nombre %>">
 
-        <label for="marca" > </label>
+        <label for="marca" >Marca</label>
         <select name="marca" id="" >
             <% marcas.forEach(marca => { %>
                 <% if (product.categoria.id == marca.id) { %>
@@ -25,20 +25,20 @@
             <% }) %>
         </select>
 
-        <label for="Deporte"></label>
+        <label for="Deporte">Deporte</label>
         <input type="text" name="sport" id="Deporte" placeholder="Deporte" Value="<%= product.deporte %> ">
 
     </div>
 
     <div class="left">
         
-        <label for="precio"></label>
+        <label for="precio">Precio</label>
         <input type="text" name="price" id="precio" placeholder="Precio" Value="<%= product.precio %> ">
 
-        <label for="descuento"></label>
+        <label for="descuento">Descuento</label>
         <input type="text" name="discount" id="descuento" placeholder="Descuento" Value="<%= product.descuento %> ">
         
-        <label for="descripcion"></label>
+        <label for="descripcion">Descripción</label>
         <input type="text" name="description" id="descripcion" placeholder="Descripción" Value="<%= product.descripcion %> ">
         
     </div>
