@@ -163,7 +163,7 @@ ul a.shopping {
 }
 /*tamaño de la imagen*/
 .carousel-item img {
-  height: 30vh;
+  height: 40vh;
 }
 .carousel {
   margin-top: 0px;
@@ -538,6 +538,10 @@ section p {
   .owl-carousel .owl-nav button.owl-prev {
     top: 40%;
     right: 980px;
+  }
+
+  #list{
+    display: none;
   }
 
   /*--footer--*/
