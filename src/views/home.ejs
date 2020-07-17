@@ -111,26 +111,30 @@
 <h4>COMPRAR POR MARCA</h4>
 
     <div class="owl-carousel owl-theme">
-<div class="item"><img src="/images/products/marcas/UA.png" alt=""></div>
-<div class="item"><img src="/images/products/marcas/PUMA.jpg" alt=""></div>
-<div class="item"><img src="/images/products/marcas/UA.png" alt=""></div>
-<div class="item"><img src="/images/products/marcas/NB.png" alt=""></div>
-<div class="item"><img src="/images/products/marcas/CONVERSE.jpg" alt=""></div>
-<div class="item"><img src="/images/products/marcas/REEBOK.png" alt=""></div>
-<div class="item"><img src="/images/products/marcas/NIKE.jpg" alt=""></div>
-<div class="item"><img src="/images/products/marcas/PUMA.jpg" alt=""></div>
+
+      <% if (categorias.image != 'null') { %>
+       <% categorias.forEach(categoria => { %>
+        <div class="item"><img src="/images/products/marcas/<%= categoria.image %> " alt=""></div>
+       <% }) %>
+      <% } %>
+
+
       </div>
     
 <!-- Lo mas vendidos -->
       <h4> MAS VENDIDOS</h4>
      <div class="owl-carousel owl-theme">
-        <% arrayProducts.forEach(product => { %>
-          <% if(product.discount ==='0'){ %>
+        <% vendidos.forEach(product => { %>
+          <% if(product.descuento == 0){ %>
             <div class='art'>
               <a href="/products"><img src="/images/products/<%= product.image %> ">
-                <h5 class="card-marca"> <%= product.marca %> </h5>
-                <h6 class="card-name"> <%= product.name %> </h6>
-                <h6 class="card-price"> $<%= product.price %> </h6></a>
+                <% categorias.forEach( marca =>{ %>
+                  <% if(marca.id == product.categoriaId){ %>  
+                <h5 class="card-marca"> <%= marca.marca %> </h5>
+                  <% } %> 
+                <% }) %> 
+                <h6 class="card-name"> <%= product.nombre %> </h6>
+                <h6 class="card-price"> $<%= product.precio %> </h6></a>
               </div>
               <% } %> 
               <% }); %> 
@@ -139,13 +143,17 @@
  <!-- Lanzamiento -->
       <h4> OFERTAS  </h4>
       <div class="owl-carousel owl-theme">
-        <% arrayProducts.forEach(product => { %>
-          <% if(product.discount >0){ %>
+        <% ofertas.forEach(product => { %>
+          <% if(product.descuento > 0){ %>
             <div class='art' >
               <a href="/products"><img src="/images/products/<%= product.image %> ">
-              <h5 class="card-marca"> <%= product.marca %> </h5>
-              <h6 class="card-name"> <%= product.name %> </h6>
-              <h6 class="card-price"> $<%= product.price %> </h6></a>
+                <% categorias.forEach( marca =>{ %>
+                  <% if(marca.id == product.categoriaId){ %>  
+                <h5 class="card-marca"> <%= marca.marca %> </h5>
+                  <% } %> 
+                <% }) %>  
+              <h6 class="card-name"> <%= product.nombre %> </h6>
+              <h6 class="card-price"> $<%= product.precio %> </h6></a>
             </div>
             <% } %> 
             <% }); %> 

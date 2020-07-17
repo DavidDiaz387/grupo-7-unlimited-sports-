@@ -17,7 +17,7 @@
         <label for="marca" >Marca</label>
         <select name="marca" id="" >
             <% marcas.forEach(marca => { %>
-                <% if (product.categoria.id == marca.id) { %>
+                <% if (product.categoriaId == marca.id) { %>
                  <option selected value="<%= marca.id %> "><%= marca.marca %> </option>
                 <% }else{ %>
                     <option value="<%= marca.id %> "><%= marca.marca %> </option>

@@ -8,7 +8,7 @@
 
 <div class="container">
 
-<% arrayProducts.forEach(product => { %>
+<% products.forEach(product => { %>
  
     <div class="card" >
   
@@ -16,8 +16,15 @@
 
         <div class="card-body">
 
-          <h4 class="card-title"> <%= product.marca %> </h4>
-          <h5 class="card-title"> <%= product.name %> </h5>
+          <% categorias.forEach(marca => { %>
+            <% if (marca.id == product.categoriaId) { %>
+              <h4 class="card-title"> <%= marca.marca %> </h4>
+            <% } %>
+
+          <% }); %> 
+
+          
+          <h5 class="card-title"> <%= product.nombre %> </h5>
           <a href="/products/<%= product.id %> " class="btn btn-primary">Comprar</a>
         </div>
       </div>

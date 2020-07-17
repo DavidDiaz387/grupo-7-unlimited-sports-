@@ -15,10 +15,11 @@ let DB = require('../database/models')
         res.render('createUser')
     },     
     store: async (req, res) =>{
-        let error
-        let password;
-        if (req.body.contraseña == req.body.rcontraseña) {
-            password = bcrypt.hashSync(req.body.contraseña, 10);
+        try {
+            let error
+            let password;
+            if (req.body.contraseña == req.body.rcontraseña) {
+                password = bcrypt.hashSync(req.body.contraseña, 10);
         
             await DB.clientes.create({
                 nombre: req.body.nombre,
@@ -27,9 +28,6 @@ let DB = require('../database/models')
                 password: password,
                 image: req.files[0].filename,
             })
-
-
-        
             let user = await DB.clientes.findOne({
                 where:{
                     email:req.body.email
@@ -38,10 +36,13 @@ let DB = require('../database/models')
          
             req.session.userId = user.id
 
-        res.redirect("/users/profile");
-        } else {
-            error = "Su confirmacion de contraseña no coincide"
-        res.render('createUser',{error})
+            res.redirect("/users/profile");
+            } else {
+                error = "Su confirmacion de contraseña no coincide"
+            res.render('createUser',{error})
+            }
+        } catch (error) {
+            res.send(error)
         }
     },
     login: (req,res)=>{
@@ -49,29 +50,37 @@ let DB = require('../database/models')
     },  
      
    auth: async (req,res)=> {
-    let error;
+        try {
+            let error;
         
-    let remenber = req.body.remenber
-    let user = await DB.clientes.findOne({
-        where:{
-            email:req.body.email
+            let remenber = req.body.remenber
+            let user = await DB.clientes.findOne({
+                where:{
+                    email:req.body.email
+                }
+            })
+            if(user && bcrypt.compareSync(req.body.password,user.password)){
+            if(remenber){
+                res.cookie("userCookie",user.id,{maxAge:100000000})
+            }
+                req.session.userId = user.id
+                res.redirect("/users/profile")
+            }else{
+                error = "Contraseña incorrecta"
+                res.render("login",{error}) 
+            }
+        } catch (error) {
+            res.send(error)
         }
-    })
-    if(user && bcrypt.compareSync(req.body.password,user.password)){
-        if(remenber){
-            res.cookie("userCookie",user.id,{maxAge:100000000})
-        }
-        req.session.userId = user.id
-        res.redirect("/users/profile")
-    }else{
-        error = "Contraseña incorrecta"
-    res.render("login",{error}) 
-    }
     },
 
     profile: async (req,res) =>{
-        let user = await DB.clientes.findByPk(req.session.userId);
-        res.render('profile', {user});
+        try {
+            let user = await DB.clientes.findByPk(req.session.userId);
+            res.render('profile', {user});
+        } catch (error) {
+            res.send(error)
+        }
     }
     
 }  

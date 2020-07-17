@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     telefono: DataTypes.INTEGER,
     fechaNacimiento: DataTypes.DATE,
     rememberToken: DataTypes.STRING
-  }, {});
+  }, {
+    timestamp:false
+  });
   clientes.associate = function(models) {
     // associations can be defined here
     clientes.belongsToMany(models.products,{
