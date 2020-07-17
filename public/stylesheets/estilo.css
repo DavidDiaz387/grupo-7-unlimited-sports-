@@ -2,100 +2,176 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /*border: solid 1px;*/
 }
 
 /*--header--*/
 
 .fantasma {
   display: none;
-
 }
 
 .logo2 {
   width: 100px;
   height: 50px;
-
 }
 
-.carrito {
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 20px;
-  color: black;
-}
-
-.lupa2 {
-  font-size: 20px;
-}
-
-.busqueda {
-  display: flex;
-  flex-direction: column;
+.icono {
+  font-size: 22px;
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .buscador {
-  border-radius: 40px
+  margin-top: 15px;
+  width: 90%;
+  margin-left: 20px;
 }
 
 .buscar {
   margin-top: 5px;
   background-color: #0099cc;
+  width: 90%;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+#btn {
+  border: none;
+  color: black;
 }
 
 /*menu*/
-
-.navbar-light .navbar-nav .nav-link {
-  color: black;
-  font-weight: bold;
+.li {
+  display: none;
+}
+.contenedorr {
+  display: grid;
+  grid-template-columns: repeat(2, 102px);
+  grid-gap: 87px;
+  justify-content: end;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
+header {
+  background: white;
+  color: black;
+  padding: 1em 0;
+  position: relative;
+}
+.site-nav {
+  top: 100%;
+  right: 0;
+  position: absolute;
+  background: white;
+  clip-path: circle(0px at top left);
+  transition: clip-path ease-in-out 700ms;
+  z-index: 99;
+  width: 100%;
+  text-align: start;
+}
+.site-nav-open {
+  clip-path: circle(150% at top right);
+}
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-nav li {
+  border-bottom: 1px solid #575766;
+}
+.site-nav li:last-child {
+  border-bottom: none;
+}
+.site-nav a {
+  color: black;
+  display: block;
+  padding: 2em 6em;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 70px;
+}
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #0099cc;
   color: white;
 }
 
-.dropdown-menu.show {
+.site-nav--icon {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-right: 1em;
+  width: 1.1em;
+  text-align: right;
+  color: rgb(192, 192, 192);
+}
+.site-nav--icon:hover {
+  color: white;
+}
+
+.menu-toggle {
   display: block;
-  width: 100%;
-  margin-top: -1px;
+  padding: 1em;
+  position: absolute;
+  top: 0.1em;
+  left: 0.5em;
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
 }
 
-.nav-link:hover {
-  background: #0099cc;
-
+.change .bar1 {
+  transform: rotate(45deg) translate(6px, -1px);
 }
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(-45deg) translate(14px, -8px);
+}
+ul a.user,
+ul a.shopping {
+  display: none;
+}
+
+/*fin de menu*/
 
 .usuario {
   display: none;
 }
 
-
-/*--contenido--*/
-
-
-/*--carousel principal--*/
-.w-100 {
-  width: 100%;
-  height: 350px;
-}
-
-/*--items circulares del carrousel principal--*/
+/*-----carousel principal-----*/
+/*indicadores*/
 .carousel-indicators li {
-  width: 10px;
   border-radius: 100%;
-  background: gray;
+  height: 10px;
+  width: 10px;
 }
-
+/* hover de los indicadores*/
 .carousel-indicators li:hover {
-  background: #0099cc;
+  background-color: #0099cc;
+}
+/*tamaño de la imagen*/
+.carousel-item img {
+  height: 30vh;
+}
+.carousel {
+  margin-top: 0px;
 }
 
-.carousel-indicators {
-  position: relative;
-  top: 360px;
-}
+/*--Fin de Carousel principal--*/
 
 /*--video--*/
-
 iframe {
   margin-top: 0;
   height: 350px;
@@ -112,7 +188,6 @@ iframe {
 .off a img {
   width: 100%;
   height: 300px;
-
 }
 
 .item {
@@ -120,10 +195,8 @@ iframe {
 }
 
 .item img {
-
   height: 200px;
   padding: 10px;
-
 }
 
 .art {
@@ -134,7 +207,7 @@ iframe {
 h4 {
   font-family: Homer Simpson UI;
   text-align: center;
-  background: #ececec
+  background: #ececec;
 }
 
 /*--Articulos--*/
@@ -144,15 +217,14 @@ h4 {
 
 .art {
   height: auto;
-
 }
 
 .art:hover {
-  border: outset 2px #0099cc
+  border: outset 2px #0099cc;
 }
 
 .card-marca {
-  color: black
+  color: black;
 }
 
 .card-name {
@@ -160,7 +232,7 @@ h4 {
 }
 
 .card-price {
-  color: #0099cc
+  color: #0099cc;
 }
 
 /****owl carousel*****/
@@ -179,7 +251,7 @@ h4 {
   color: rgba(0, 0, 0, 0.5);
   font-size: 40px;
   position: relative;
-  bottom: 10px
+  bottom: 10px;
 }
 
 .owl-carousel .owl-nav button.owl-next {
@@ -221,7 +293,7 @@ div.owl-theme .owl-dots .owl-dot span {
 
 .owl-carousel.owl-theme .owl-nav [class*="owl-"]:hover {
   background: #0099cc;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -252,7 +324,6 @@ section p {
 .icon {
   border-radius: 100%;
   font-size: 30px;
-
 }
 
 .pagos {
@@ -266,8 +337,11 @@ section p {
 /*---------------------------------------------------------------------------------------------------------------*/
 
 @media (min-width: 768px) {
-
+  .contenedorr {
+    grid-gap: 234px;
+  }
   /*--Las mejores oferta--*/
+
   .off a img {
     width: 96%;
     height: 385px;
@@ -276,21 +350,17 @@ section p {
 
   /*--flechas del owl carousel --*/
   .owl-carousel .owl-nav button.owl-prev {
-    right: 720px
+    right: 720px;
   }
 
   .owl-carousel .owl-nav button.owl-next {
-    left: 720px
+    left: 720px;
   }
 }
 
 /*------------------------------------------------------------------------------------------------------*/
 
-
-
-
 @media (min-width: 1024px) {
-
   /*-----header-----*/
   .fantasma {
     display: flex;
@@ -316,109 +386,110 @@ section p {
   .logo {
     width: 150px;
     height: 70px;
-    margin-right: 107px;
+    margin-right: 42px;
   }
 
-  .user {
-    display: none;
-  }
-
-  .usuario {
-    display: inline;
-    font-size: 20px;
-    color: white
-  }
-
+ 
   .lupa2 {
-    display: none
+    display: none;
   }
 
   .lupa {
     position: absolute;
-    top: 34px;
+    top: 42px;
     right: 20px;
-
+    color: rgb(175, 175, 175);
   }
 
-  .carrito {
-    font-size: 20px;
-    color: white
-  }
 
   .envio {
     margin-top: 15px;
-
   }
 
   .flete {
-    margin-top: 15px;
+    margin-right: 8px;
   }
 
-
   .serch {
-
     right: 354px;
     top: 29px;
   }
+  .buscador {
+    width: 400px;
 
+    border-radius: 40px;
+  }
   /*menu */
-  .menu {
-    display: flex;
-    height: 40px;
-    background: black;
-  }
-
-  .navbar {
-    background: black;
-    height: 40px;
-  }
-
-  nav .navbar {
-    background: black;
-  }
-
-  .navbar-light .navbar-nav .nav-link {
-    color: white;
-    font-weight: bold;
-
-  }
-
-  .navbar-expand-lg .navbar-collapse {
-    background: black;
-  }
-
-  .nav-link:hover {
-    background: #0099cc;
-
-  }
-
-  .user {
+  .contenedorr {
     display: none;
   }
+  ul li.faa {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+  .site-nav {
+    height: 40px;
+    position: relative;
+    background: black;
+    margin-right: 10px;
+    clip-path: initial;
+  }
+  .site-nav li {
+    display: inline-block;
+    border: none;
+  }
+  .site-nav li:hover {
+    background: #0099cc;
+  }
+
+  .site-nav a {
+    padding: 0;
+    margin-left: 1em;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px;
+  }
+  .site-nav--icon {
+    display: none;
+  }
+
+  ul a.user {
+    display: inline-block;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 58px;
+    font-size: 20px;
+  }
+  ul a.shopping {
+    display: inline-block;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+  }
+
+  header {
+    padding: 0;
+  }
+  /*fin de menu */
+
+  /*.user {
+    display: none;
+  }*/
 
   p {
     margin-top: 0;
     margin-bottom: 0rem;
   }
 
-
-
-
-
   /*--contenido --*/
-  .carousel-indicators {
-    position: relative;
-    top: 360px;
-  }
-
-  .w-100 {
-    margin-top: 0;
-  }
-
-  .carousel-inner{
-    margin-top: -39px;
-  }
-
 
   .off {
     display: flex;
@@ -431,33 +502,24 @@ section p {
     width: 90%;
   }
 
-
   a.nav-link {
-    color: white
+    color: white;
   }
 
-  .navbar-light .navbar-nav .active>.nav-link,
+  .navbar-light .navbar-nav .active > .nav-link,
   .navbar-light .navbar-nav .nav-link.active,
   .navbar-light .navbar-nav .nav-link.show,
-  .navbar-light .navbar-nav .show>.nav-link {
-    color: white
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: white;
   }
 
   .navbar-expand-lg .navbar-nav {
-
     background: black;
   }
 
   .navbar {
     background: black;
   }
-
-
-
-
-
-
-
 
   /*----owl carousel----*/
   .item {
@@ -469,16 +531,11 @@ section p {
   }
 
   .owl-carousel .owl-nav button.owl-next {
-
     top: 40%;
     left: 980px;
-
-
-
   }
 
   .owl-carousel .owl-nav button.owl-prev {
-
     top: 40%;
     right: 980px;
   }
@@ -500,7 +557,7 @@ section p {
   }
 
   .tarjetas {
-    width: 70%
+    width: 70%;
   }
 
   .pagos {
@@ -510,7 +567,7 @@ section p {
 
   .tarjetas p {
     text-align: center;
-    color: white
+    color: white;
   }
 
   footer {
@@ -522,6 +579,5 @@ section p {
     background: white;
     text-align: start;
     margin-left: 6px;
-
   }
 }
